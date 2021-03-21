@@ -5,26 +5,22 @@ import java.util.List;
 
 public class PetOwner {
     private String name="";
-    private Pet[] pets = new Pet[0];
+    private ArrayList<Pet> list=new ArrayList<Pet>();
 
-    public PetOwner(String name, Pet[] pets) {
-        this.name = name;
-        this.pets = pets;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public PetOwner(String name) {
         this.name = name;
     }
 
-    public Pet[] getPets() {
-        return pets;
+    public void add(Pet pet){
+        list.add(pet);
     }
 
-    public void setPets(Pet[] pets) {
-        this.pets = pets;
+    public String ownedPets(){
+        String temp="";
+        for(Pet p:list){
+            temp=temp.concat(p.getName()+" ");
+        }
+        return temp;
     }
 }
